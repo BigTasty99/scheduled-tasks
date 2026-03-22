@@ -9,7 +9,7 @@ api_key= os.environ.get("OWM_API_KEY")
 MY_LAT = -1.455729
 MY_LONG = -48.490177
 OWM_Endpoint="https://api.openweathermap.org/data/2.5/forecast"
-account_sid="ACCOUNT_SID"
+account_sid=os.environ.get("ACCOUNT_SID")
 auth_token=os.environ.get("AUTH_TOKEN")
 
 
@@ -36,8 +36,8 @@ if will_rain:
     client = Client(account_sid, auth_token, http_client=proxy_client)
     message = client.messages.create(
         body="It's going to rain today. Bring an umbrella!",
-        from_="TWILIO_NUMBER",
-        to="VERIFIED_NUMBER",
+        from_=os.environ.get("TWILIO_NUMBER"),
+        to=os.environ.get("VERIFIED_NUMBER"),
     )
 
     print(message.status)
