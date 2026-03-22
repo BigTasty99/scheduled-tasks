@@ -36,8 +36,8 @@ if will_rain:
     client = Client(account_sid, auth_token, http_client=proxy_client)
     message = client.messages.create(
         body="It's going to rain today. Bring an umbrella!",
-        from_="+13185589667",
-        to="+818078886873",
+        from_="TWILIO_NUMBER",
+        to="VERIFIED_NUMBER",
     )
 
     print(message.status)
